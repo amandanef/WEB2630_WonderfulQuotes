@@ -12,8 +12,11 @@
             aria-valuenow="60"
             aria-valuemin="0"
             aria-valuemax="100"
+            style="width: (quoteCount / maxQuote * 100 + '%')"
           >
             <!--ToDo: Output quoteCount and maxQuotes-->
+            {{ quoteCount }} / {{maxQuotes}}
+            
           </div>
         </div>
       </div>
@@ -25,5 +28,6 @@
 export default {
   // ToDo: Create props that are being passed in App.vue (quoteCount & maxQuotes)
   // Note: use normal array syntax, to pass more then 1 separate by comma
+  props: ['maxQuotes', 'quoteCount'],
 }
 </script>

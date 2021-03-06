@@ -6,7 +6,7 @@
         <!--ToDo: Within the textarea use v-model that is set to quote-->
         <textarea
           class="form-control"
-          rows="3"
+          rows="3" v-model="quote" placeholder="Enter quote here"
         ></textarea>
       </div>
       <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-md-6 col-md-offset-3 form-group">
@@ -22,11 +22,18 @@ export default {
   data () {
     return {
       // ToDo: Create a data object called quote that is se to an empty string
+        quote: String,
     };
   },
   methods: {
     // ToDo: Create a method createNew that emits a custom event named quoteAdded that passes the quote data object above
     // Set quote to an empty string
+    /*
+    createNew() {
+
+      quote = "";
+    }
+    */
   }
 }
 </script>

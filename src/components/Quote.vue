@@ -3,6 +3,7 @@
     <div class="panel panel-default">
       <div class="panel-body quote">
         <!--ToDo: Add default slot tag for passing the quote-->
+        <slot name="quoteContent"></slot>
       </div>
     </div>
   </div>
@@ -11,12 +12,19 @@
 <script>
 </script>
 
-<style>
+<style scoped>
 /*ToDo: Create a class panel that sets the font-family to preffered font*/
 /*Set a specific front size to your liking*/
 /*Set a color of your choice*/
-
+.panel {
+font-family: 'Dancing Script', cursive;
+font-size: 30px;
+color: #1D0A54;
+}
 /*ToDo: Create a class quote that sets the cursor to a pointer*/
-
+.quote {cursor: pointer;}
 /*ToDo: Create a hover effect on the class quote changing the background color to a color you prefer*/
+.quote:hover {
+  background-color: #F9ECFF;
+}
 </style>
