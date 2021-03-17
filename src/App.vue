@@ -3,14 +3,14 @@
     <!--ToDo: Use the Header component selector-->
     <!--Bind data props quoteCount and set it equal to the quote length-->
     <!--Bind data props maxQuotes and set it equal to the maxQuotes created below-->
-<appHeader :quoteCount="quotes.length" :maxQuotes="this.maxQuotes"></appHeader>
+<appHeader :quoteCount="quotes.length" :maxQuotes="maxQuotes"></appHeader>
     <!--ToDo: Use the NewQuote component selector-->
     <!--Call @quoteAdded that is emitted from the NewQuote Component and pass the newQuote method created below-->
-<appNewQuote @quoteAdded="quote = $event"></appNewQuote>
+<appNewQuote @quoteAdded="newQuote"></appNewQuote>
     <!--ToDo: Use the QuoteGrid component selector-->
     <!--Bind data props quotes and set it equal to the quotes array created below-->
     <!--Call @quoteDeleted that is emitted from the QuoteGrid Component and pass the deleteQuote method created below-->
-  <appQuoteGrid :quotes="quotes"></appQuoteGrid>
+  <appQuoteGrid :quotes="quotes" @quoteDeleted="deleteQuote"></appQuoteGrid>
     <div class="row">
       <div class="col-sm-12 text-center">
         <div class="alert alert-info">Info: Click on a Quote to delete it!</div>
@@ -43,16 +43,16 @@ export default {
     // If it is return an alert telling the user to delete a quote
     // Outside of conditional, push quote (method parameter) to the quotes array
         
-        /*
-        newQuote () {
-          if (quoteCount > 10) {
-            alert("You have more than 10 quotes! Please delete one.")
+        newQuote(quote) {
+          if (this.quotes.length >= this.maxQuotes) {
+            return alert("You need to delete a quote")
           }
-          else {
-            this.quotes.push();
-          }
+          this.quotes.push(quote)
         },
-        */
+        deleteQuote(index) {
+          this.quotes.splice(index, 1)
+        }
+        
        
     // ToDo: Create a method called deleteQuote that takes in a parameter of index
     // This method will splice the quotes array by (index, 1)

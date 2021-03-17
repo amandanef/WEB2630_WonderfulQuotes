@@ -11,7 +11,7 @@
       </div>
       <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-md-6 col-md-offset-3 form-group">
         <!--ToDo: Add a click event with .prevent modifier and set it equal to the createNew method created below-->
-        <button class="btn btn-primary" @click="createNew">Add Quote</button>
+        <button class="btn btn-primary" @click.prevent="createNew">Add Quote</button>
       </div>
     </form>
   </div>
@@ -22,7 +22,7 @@ export default {
   data () {
     return {
       // ToDo: Create a data object called quote that is set to an empty string
-        quote: String,
+        quote: "",
     };
   },
   methods: {
@@ -30,8 +30,10 @@ export default {
     // Set quote to an empty string
     
     createNew() {
-      this.quote = "";
       this.$emit('quoteAdded', this.quote)
+      //Reset
+        this.quote = "";
+
     }
     
   }
