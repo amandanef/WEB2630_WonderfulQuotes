@@ -6,7 +6,7 @@
 <appHeader :quoteCount="quotes.length" :maxQuotes="this.maxQuotes"></appHeader>
     <!--ToDo: Use the NewQuote component selector-->
     <!--Call @quoteAdded that is emitted from the NewQuote Component and pass the newQuote method created below-->
-<appNewQuote></appNewQuote>
+<appNewQuote @quoteAdded="quote = $event"></appNewQuote>
     <!--ToDo: Use the QuoteGrid component selector-->
     <!--Bind data props quotes and set it equal to the quotes array created below-->
     <!--Call @quoteDeleted that is emitted from the QuoteGrid Component and pass the deleteQuote method created below-->
@@ -31,7 +31,7 @@ export default {
       // ToDo: Create an array called quotes
       // Have at least one string by default
         quotes: [
-          "Go Beyond, Plus Ultra",
+          "Excelsior",
         ],
       // ToDo: Create maxQuotes that is set to 10
       maxQuotes: 10,
